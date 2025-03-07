@@ -3,7 +3,6 @@ import math
 class QuadraticEquationSolver:
     @staticmethod
     def solve(a, b, c):
-        """Решает квадратное уравнение ax^2 + bx + c = 0."""
         discriminant = b**2 - 4*a*c
 
         if discriminant < 0:
