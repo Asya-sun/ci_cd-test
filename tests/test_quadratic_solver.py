@@ -16,5 +16,23 @@ class TestQuadraticEquationSolver(unittest.TestCase):
         roots = solver.solve(1, -3, 2)  # x^2 - 3x + 2 = 0
         self.assertEqual(roots, (2.0, 1.0))
 
+    def test_irrational_roots(self):
+        solver = QuadraticEquationSolver()
+        delta = 1e-9
+        
+        # Тест 1: x^2 - 2 = 0 → x = ±√2 ≈ ±1.414213562
+        roots = solver.solve(1, 0, -2)
+        self.assertIsNotNone(roots)
+        self.assertEqual(len(roots), 2)
+        self.assertAlmostEqual(roots[0], 1.414213562, delta=delta)
+        self.assertAlmostEqual(roots[1], -1.414213562, delta=delta)
+        
+        # Тест 2: x^2 - x - 1 = 0 → x = (1±√5)/2 ≈ 1.618033989 и -0.618033989
+        roots = solver.solve(1, -1, -1)
+        self.assertIsNotNone(roots)
+        self.assertEqual(len(roots), 2)
+        self.assertAlmostEqual(roots[0], 1.618033989, delta=delta)
+        self.assertAlmostEqual(roots[1], -0.618033989, delta=delta)
+
 if __name__ == '__main__':
     unittest.main()
