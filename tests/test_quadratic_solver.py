@@ -33,20 +33,24 @@ class TestQuadraticEquationSolver(unittest.TestCase):
         self.assertEqual(len(roots), 2)
         self.assertAlmostEqual(roots[0], 1.618033989, delta=delta)
         self.assertAlmostEqual(roots[1], -0.618033989, delta=delta)
+    
     def test_linear_equation(self):
         """Тест на линейное уравнение (a=0)"""
-        # 0x² + 2x - 4 = 0 → x = 2
-        roots = self.solver.solve(0, 2, -4)
-        self.assertAlmostEqual(roots[0], 2.0, delta=self.delta)
+        # 0x² + 2x - 4 = 0 → x = 2        
+        solver = QuadraticEquationSolver()
+        delta = 1e-9
+        roots = solver.solve(0, 2, -4)
+        self.assertAlmostEqual(roots[0], 2.0, delta=delta)
 
     def test_edge_cases(self):
         """Тест граничных случаев"""
         # x² + 0x + 0 = 0 → x = 0
-        roots = self.solver.solve(1, 0, 0)
+        solver = QuadraticEquationSolver()
+        roots = solver.solve(1, 0, 0)
         self.assertEqual(roots, (0.0,))
         
         # 0x² + 0x + 0 = 0 → бесконечно много решений (но наш метод вернет None)
-        self.assertIsNone(self.solver.solve(0, 0, 0))
+        self.assertIsNone(solver.solve(0, 0, 0))
 
 if __name__ == '__main__':
     unittest.main()
