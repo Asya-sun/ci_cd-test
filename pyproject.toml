@@ -1,0 +1,8 @@
+[tool.semantic_release]
+version_variable = [
+    "src/your_package/__init__.py:__version__",  
+    "pyproject.toml:version"                    
+]
+version_source = "tag"
+starting_version = "0.1.0" 
+tag_format = "v{version}"  
