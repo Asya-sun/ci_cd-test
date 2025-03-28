@@ -2,6 +2,7 @@ name: Link branch to Jira
 on:
   create:
     branches:
+    tags-ignore: "*"
 
 jobs:
   link-branch:
