@@ -1,6 +1,6 @@
 [tool.semantic_release]
 version_variable = [
-    "src/your_package/__init__.py:__version__",  
+    "quadratic_solver/__init__.py:__version__",  
     "pyproject.toml:version"                    
 ]
 version_source = "tag"

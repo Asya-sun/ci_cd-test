@@ -1,5 +1,5 @@
 import unittest
-from quadratic_solver import QuadraticEquationSolver
+from quadratic_solver.quadratic_solver import QuadraticEquationSolver
 
 class TestQuadraticEquationSolver(unittest.TestCase):
     def test_no_real_roots(self):
