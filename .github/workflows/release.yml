@@ -8,6 +8,10 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+        contents: write  # Для создания тегов
+        packages: write  # Для публикации в GHCR
+        pull-requests: write  # Для создания релизов
     steps:
       - uses: actions/checkout@v4
         with:
