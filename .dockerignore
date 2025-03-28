@@ -1,0 +1,9 @@
+# cache and temporary files
+__pycache__/
+*.py[cod]
+*$py.class
+.python-version
+
+# ide files (kinda)
+.idea/
+.vscode/
