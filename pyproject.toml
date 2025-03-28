@@ -1,6 +1,6 @@
 [tool.semantic_release]
 version_variable = "quadratic_solver/__init__.py:__version__"
-version_source = "tag"
+version_source = "commit"
 starting_version = "0.1.0" 
 tag_format = "v{version}"  
 upload_to_repository = true
