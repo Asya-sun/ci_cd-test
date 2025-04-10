@@ -56,7 +56,7 @@ class TestQuadraticEquationSolver(unittest.TestCase):
         roots = solver.solve(1, 0, -1)
         self.assertEqual(roots, (1.0, -1.0))
 
-    def test_edge_cases_3(self):
+    def test_uncountable(self):
         # 0x² + 0x + 0 = 0 → бесконечно много решений (но наш метод вернет None)
         solver = QuadraticEquationSolver()
         self.assertIsNone(solver.solve(0, 0, 0))
