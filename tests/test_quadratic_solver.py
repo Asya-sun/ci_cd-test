@@ -48,16 +48,18 @@ class TestQuadraticEquationSolver(unittest.TestCase):
         solver = QuadraticEquationSolver()
         roots = solver.solve(1, 0, 0)
         self.assertEqual(roots, (0.0,))
-        
-        # 0x² + 0x + 0 = 0 → бесконечно много решений (но наш метод вернет None)
-        self.assertIsNone(solver.solve(0, 0, 0))
 
-    def test_edge_cases(self):
+    def test_edge_cases_2(self):
         """Тест граничных случаев"""
         # x² + 0x + 0 = 1 → x = +-1
         solver = QuadraticEquationSolver()
         roots = solver.solve(1, 0, -1)
         self.assertEqual(roots, (1.0, -1.0))
+
+    def test_edge_cases_3(self):
+        # 0x² + 0x + 0 = 0 → бесконечно много решений (но наш метод вернет None)
+        solver = QuadraticEquationSolver()
+        self.assertIsNone(solver.solve(0, 0, 0))
         
 
 if __name__ == '__main__':
