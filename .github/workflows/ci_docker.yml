@@ -28,6 +28,30 @@ jobs:
       - name: Run tests
         run: |
           python -m unittest discover tests
+
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+          
+      - name: Install dependencies
+        run: pip install python-semantic-release
+      
+      - name: Semantic Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: semantic-release publish
   
   docker-build:
     needs: test  # Запускается только после успеха тестов
