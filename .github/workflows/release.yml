@@ -9,9 +9,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-        contents: write  # Для создания тегов
-        packages: write  # Для публикации в GHCR
-        pull-requests: write  # Для создания релизов
+      contents: write
+      packages: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,11 +23,9 @@ jobs:
           python-version: 3.12
           
       - name: Install dependencies
-        run: |
-          pip install python-semantic-release
-          
+        run: pip install python-semantic-release
+      
       - name: Semantic Release
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          semantic-release publish  
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: semantic-release publish
