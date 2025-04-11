@@ -10,7 +10,7 @@ class QuadraticEquationSolver:
         discriminant = b**2 - 4*a*c
 
         if discriminant < 0:
-            return None  # Нет действительных корней
+            return None  # Нет действительных корней;
         elif discriminant == 0:
             x = -b / (2*a)
             return (x,)
